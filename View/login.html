@@ -1,0 +1,29 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="Assets/css/login.css">
+        <link rel="stylesheet" href="Assets/css/styles.css">
+    </head>
+    <style>
+        
+    </style>
+    <body>
+        <form action="Model/login.php" method="post">
+            <h1>Login</h1>
+            <div class="inputs">
+                <div>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div>
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <input type="submit" value="Login" style=" cursor: pointer; background-color: rgb(105, 255, 255);">
+                </div>
+                <div>Dont have an account yet? <a href="?request=register">Signup</a></div>
+            </div>
+        </form>
+    </body>
+</html>
