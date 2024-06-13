@@ -1,0 +1,27 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+form {
+    padding: 10px;
+    border-radius: 1rem;
+    border: 5px solid rgb(211, 234, 255);
+    text-align: center;
+    width: 20rem;
+    height: 30rem;
+}
+
+input {
+    width: 95%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: rgb(211, 234, 255);
+    font-size: 1rem;
+    padding: 10px;
+}
