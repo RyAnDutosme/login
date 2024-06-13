@@ -1,30 +1,62 @@
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="Assets/css/register.css">
-        <link rel="stylesheet" href="Assets/css/styles.css">
-    </head>
-    <body>
-        <form action="Model/register.php" method="post">
-            <h1>Register</h1>
-            <div class="inputs">
-                <div style="display: flex; gap: 10px;">
-                    <input type="text" name="first_name" placeholder="First name" required>
-                    <input type="text" name="last_name" placeholder="Last name" required>
-                </div>
-                <div>
-                    <input type="email" name="email" placeholder="Email" required>
-                </div>
-                <div>
-                    <input type="password" name="password" placeholder="Password" required>
-                </div>
-                <div style="margin-top: 1rem;">
-                    <input type="submit" value="Signup" style=" cursor: pointer; background-color: rgb(105, 255, 255);">
-                </div>
-                <div>Already have an account? <a href="?request=login">Login</a></div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Assets/css/register.css">
+    <link rel="stylesheet" href="Assets/css/styles.css">
+</head>
+<body>
+    <form id="roleForm">
+        <h1>Select Role</h1>
+        <div class="inputs">
+            <select id="role" name="role" required>
+                <option value="" disabled selected>Select your role</option>
+                <option value="teacher">TEACHER</option>
+                <option value="accounting">ACCOUNTING</option>
+                <option value="student">STUDENT</option>
+            </select>
+            <div style="margin-top: 1rem;">
+                <button type="button" onclick="showRegisterForm()">Next</button>
             </div>
-        </form>
-    </body>
+        </div>
+    </form>
+
+    <form id="registerForm" action="Model/register.php" method="post" style="display: none;">
+        <h1>Register</h1>
+        <div class="inputs">
+            <input type="hidden" id="roleInput" name="role">
+            <div style="display: flex; gap: 10px;">
+                <input type="text" name="first_name" placeholder="First name" required>
+                <input type="text" name="last_name" placeholder="Last name" required>
+            </div>
+            <div>
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <div>
+                <input type="text" id="id" name="id" placeholder="Employee ID or Student ID" required>
+            </div>
+            <div style="margin-top: 1rem;">
+                <input type="submit" value="Signup" style="cursor: pointer; background-color: rgb(105, 255, 255);">
+            </div>
+            <div>Already have an account? <a href="?request=login">Login</a></div>
+        </div>
+    </form>
+
+    <script>
+        function showRegisterForm() {
+            const role = document.getElementById('role').value;
+            if (role) {
+                document.getElementById('roleInput').value = role;
+                document.getElementById('registerForm').style.display = 'block';
+                document.getElementById('roleForm').style.display = 'none';
+                document.getElementById('id').placeholder = role === 'student' ? 'Student ID' : 'Employee ID';
+            }
+        }
+    </script>
+</body>
 </html>
